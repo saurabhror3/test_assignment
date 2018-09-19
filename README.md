@@ -10,8 +10,8 @@ Things you may want to cover:
 * Rails version - 5.2.1
 
 * System dependencies
-  database - sqllite
-  image upload - RMagick required for image resize
+  1. database - sqllite
+  2. image upload - RMagick required for image resize
 
 * Configuration
 
@@ -22,7 +22,7 @@ Things you may want to cover:
   1. rails db:migrate
 
 * How to run the app
-  rails s
+  1. rails s
 
 * Services (job queues, cache servers, search engines, etc.)
 
