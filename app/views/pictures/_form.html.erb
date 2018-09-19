@@ -1,0 +1,75 @@
+<div class="page-bg p-4">
+  <div class="white-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 hd">
+          <h3>Claim Photo Capture</h3>
+        </div>
+        <div class="col-md-12 p-4">
+          <h4 class="text-center"><b>REPLACE WITH <br>ANY NICE</b></h4>
+        </div>
+        <div class="col-md-12">
+          <h5><b>A fast and easy way to capture your claim photos and documents!</b></h5>
+        </div>
+        <div class="col-9 light-color">
+        </div>
+        <div class="col-3 dark-color">
+        </div>
+        <div class="col-md-12 py-2">
+          <h5>Claim no. :2</h5>
+          <h5>Arslan Ahmad</h5>
+        </div>
+        <div class="col-md-12 photo">
+          <h4>Photo upload/capture</h4>
+        </div>
+        <%= form_with(model: picture, local: true, html: { multipart: true }) do |form| %>
+          <div class="col-md-12 photo-bg">
+            <div class="row">
+              <div class="col-md-12">
+                <%= form.fields_for :images do |f| %>
+                  <p>Damage room overview <%= f.index + 1 %></p>
+                  <div class="upload-btn-wrapper">
+                    <button class="btnn">
+                      <%= image_tag 'photo-upload', class: 'img-fluid hidden', id: "img_prev_#{f.index}" %>
+                    </button>
+                      <%= f.file_field :photo, id: "photo_upload", "data-id": "#{f.index}", class: "photo_upload" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 px-5 py-2">
+            <div class="form-group form-check">
+              <%= form.check_box :terms, id: 'exampleCheck1' %>
+              <label class="form-check-label" for="exampleCheck1">I agree to the <a href="#">Terms & Conditions</a></label>
+            </div>
+            <%= form.submit 'Submit', class: 'send' %>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+
+  $(function() {
+    function readURL(input, id) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#img_prev_'+id).attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $(".photo_upload").change(function(){
+      var id = $(this).attr("data-id")
+      $('#img_prev_'+id).removeClass('hidden');
+      readURL(this, id);
+    });
+  });
+
+</script>
