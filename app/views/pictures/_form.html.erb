@@ -25,8 +25,8 @@
         <%= form_with(model: picture, local: true, html: { multipart: true }, class: 'html_form') do |form| %>
           <div class="col-md-12 photo-bg">
             <div class="row">
-              <div class="col-md-6 mt-2">
-                <%= form.fields_for :images do |f| %>
+              <%= form.fields_for :images do |f| %>
+                <div class="col-md-6 mt-2">
                   <p>Damage room overview <%= f.index + 1 %></p>
                   <div class="upload-btn-wrapper">
                     <button class="btnn">
@@ -34,8 +34,8 @@
                     </button>
                       <%= f.file_field :photo, id: "photo_upload", "data-id": "#{f.index}", class: "photo_upload" %>
                   </div>
-                <% end %>
-              </div>
+                </div>
+              <% end %>
             </div>
           </div>
           <div class="col-md-12 px-5 py-2">
