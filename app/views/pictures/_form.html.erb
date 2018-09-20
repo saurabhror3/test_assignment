@@ -22,10 +22,10 @@
         <div class="col-md-12 photo">
           <h4>Photo upload/capture</h4>
         </div>
-        <%= form_with(model: picture, local: true, html: { multipart: true }) do |form| %>
+        <%= form_with(model: picture, local: true, html: { multipart: true }, class: 'html_form') do |form| %>
           <div class="col-md-12 photo-bg">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-6 mt-2">
                 <%= form.fields_for :images do |f| %>
                   <p>Damage room overview <%= f.index + 1 %></p>
                   <div class="upload-btn-wrapper">
