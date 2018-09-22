@@ -3,7 +3,7 @@
 <p>
   <strong>Image:</strong>
   <br>
-  <% @picture.images.each do |pic| %>
+  <% @images.each do |pic| %>
     <%= image_tag pic.photo.url(:thumb) %>
   <% end %>
 </p>
